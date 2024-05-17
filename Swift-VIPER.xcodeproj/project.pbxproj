@@ -31,6 +31,7 @@
 		A751C1312BF7DF120040DB43 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1302BF7DF120040DB43 /* DetailPresenter.swift */; };
 		A751C1332BF7DF260040DB43 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1322BF7DF260040DB43 /* DetailRouter.swift */; };
 		A751C1352BF7DF360040DB43 /* DetailModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1342BF7DF360040DB43 /* DetailModuleBuilder.swift */; };
+		A751C13A2BF804500040DB43 /* LoaderDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1392BF804500040DB43 /* LoaderDisplayable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		A751C1302BF7DF120040DB43 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		A751C1322BF7DF260040DB43 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		A751C1342BF7DF360040DB43 /* DetailModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleBuilder.swift; sourceTree = "<group>"; };
+		A751C1392BF804500040DB43 /* LoaderDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderDisplayable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				A751C1112BF7CA6D0040DB43 /* Network */,
 				A71AF59E2BF7898400FE1560 /* HomeModule */,
 				A751C1252BF7DECB0040DB43 /* DetailModule */,
+				A751C1362BF7FD760040DB43 /* Utils */,
 				A71AF56E2BF784A100FE1560 /* AppDelegate.swift */,
 				A71AF5702BF784A100FE1560 /* SceneDelegate.swift */,
 				A71AF5772BF784A300FE1560 /* Assets.xcassets */,
@@ -284,6 +287,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		A751C1362BF7FD760040DB43 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A751C1392BF804500040DB43 /* LoaderDisplayable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -415,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A751C1192BF7D4780040DB43 /* WebService.swift in Sources */,
+				A751C13A2BF804500040DB43 /* LoaderDisplayable.swift in Sources */,
 				A71AF5AE2BF797DE00FE1560 /* HomeModuleBuilder.swift in Sources */,
 				A71AF5732BF784A100FE1560 /* HomeViewController.swift in Sources */,
 				A751C1332BF7DF260040DB43 /* DetailRouter.swift in Sources */,

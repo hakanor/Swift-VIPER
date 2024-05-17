@@ -25,10 +25,12 @@ class HomePresenter {
 
 extension HomePresenter: HomePresentation {
     func viewDidLoad() {
+        view?.showLoadingView()
         Task {
             do {
                 let todos = try await interactor.getTodos()
                 view?.updateTableView(with: todos)
+                view?.dismissLoadingView()
             } catch {
                 let alertModel = AlertModel(title: "Error", message: error.localizedDescription, accessibilityIdentifier: "errorAlertDialog")
                 view?.showAlertDialog(with: alertModel)

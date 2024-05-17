@@ -10,9 +10,11 @@ import UIKit
 protocol HomeView: AnyObject {
     func updateTableView(with todos: [Todo])
     func showAlertDialog(with alert: AlertModel)
+    func showLoadingView()
+    func dismissLoadingView()
 }
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, LoaderDisplayable {
     
     var todos = [Todo]()
     var presenter: HomePresentation!
@@ -60,6 +62,18 @@ extension HomeViewController: HomeView {
         DispatchQueue.main.async {
             alertDialog.view.accessibilityIdentifier = alert.accessibilityIdentifier
             self.present(alertDialog, animated: true)
+        }
+    }
+    
+    func showLoadingView() {
+        DispatchQueue.main.async {
+            self.showLoading()
+        }
+    }
+    
+    func dismissLoadingView() {
+        DispatchQueue.main.async {
+            self.dismissLoading()
         }
     }
 }
