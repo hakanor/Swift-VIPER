@@ -6,16 +6,24 @@
 //
 
 protocol HomeUseCase {
-    func getTitle() -> HomeModel
+    func getTodos() async throws -> [Todo]
 }
 
 class HomeInteractor {
-    // db, webservice etc references
+    private var webService: WebServiceProtocol
+    
+    init(webService: WebServiceProtocol) {
+        self.webService = webService
+    }
 }
 
 extension HomeInteractor: HomeUseCase {
-    func getTitle() -> HomeModel {
-        // get - set HomeModel and pass to presenter, then pass it to viewController
-        return HomeModel(title: "Title")
+    func getTodos() async throws -> [Todo] {
+        do {
+            let todos = try await webService.fetchTodos()
+            return todos
+        } catch {
+            throw error
+        }
     }
 }

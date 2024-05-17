@@ -18,8 +18,19 @@
 		A71AF5A62BF796EC00FE1560 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5A52BF796EC00FE1560 /* HomePresenter.swift */; };
 		A71AF5A82BF7971C00FE1560 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5A72BF7971C00FE1560 /* HomeRouter.swift */; };
 		A71AF5AA2BF7974F00FE1560 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5A92BF7974F00FE1560 /* HomeInteractor.swift */; };
-		A71AF5AC2BF7978600FE1560 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5AB2BF7978600FE1560 /* HomeModel.swift */; };
 		A71AF5AE2BF797DE00FE1560 /* HomeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5AD2BF797DE00FE1560 /* HomeModuleBuilder.swift */; };
+		A751C1152BF7CAC00040DB43 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1142BF7CAC00040DB43 /* NetworkProvider.swift */; };
+		A751C1192BF7D4780040DB43 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1182BF7D4780040DB43 /* WebService.swift */; };
+		A751C11B2BF7D4A30040DB43 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C11A2BF7D4A30040DB43 /* HTTPMethod.swift */; };
+		A751C11D2BF7D4AA0040DB43 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C11C2BF7D4AA0040DB43 /* NetworkError.swift */; };
+		A751C11F2BF7D5070040DB43 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C11E2BF7D5070040DB43 /* TodoModel.swift */; };
+		A751C1222BF7D6890040DB43 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1212BF7D6890040DB43 /* HomeCell.swift */; };
+		A751C1242BF7DA460040DB43 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1232BF7DA460040DB43 /* AlertModel.swift */; };
+		A751C12D2BF7DEFD0040DB43 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C12C2BF7DEFD0040DB43 /* DetailViewController.swift */; };
+		A751C12F2BF7DF050040DB43 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C12E2BF7DF050040DB43 /* DetailInteractor.swift */; };
+		A751C1312BF7DF120040DB43 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1302BF7DF120040DB43 /* DetailPresenter.swift */; };
+		A751C1332BF7DF260040DB43 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1322BF7DF260040DB43 /* DetailRouter.swift */; };
+		A751C1352BF7DF360040DB43 /* DetailModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1342BF7DF360040DB43 /* DetailModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +66,19 @@
 		A71AF5A52BF796EC00FE1560 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		A71AF5A72BF7971C00FE1560 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		A71AF5A92BF7974F00FE1560 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
-		A71AF5AB2BF7978600FE1560 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		A71AF5AD2BF797DE00FE1560 /* HomeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleBuilder.swift; sourceTree = "<group>"; };
+		A751C1142BF7CAC00040DB43 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		A751C1182BF7D4780040DB43 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		A751C11A2BF7D4A30040DB43 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		A751C11C2BF7D4AA0040DB43 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A751C11E2BF7D5070040DB43 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		A751C1212BF7D6890040DB43 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		A751C1232BF7DA460040DB43 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		A751C12C2BF7DEFD0040DB43 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A751C12E2BF7DF050040DB43 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		A751C1302BF7DF120040DB43 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		A751C1322BF7DF260040DB43 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		A751C1342BF7DF360040DB43 /* DetailModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				A71AF5A42BF78FC500FE1560 /* Entity */,
+				A751C1112BF7CA6D0040DB43 /* Network */,
 				A71AF59E2BF7898400FE1560 /* HomeModule */,
+				A751C1252BF7DECB0040DB43 /* DetailModule */,
 				A71AF56E2BF784A100FE1560 /* AppDelegate.swift */,
 				A71AF5702BF784A100FE1560 /* SceneDelegate.swift */,
 				A71AF5772BF784A300FE1560 /* Assets.xcassets */,
@@ -159,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				A71AF5722BF784A100FE1560 /* HomeViewController.swift */,
+				A751C1212BF7D6890040DB43 /* HomeCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,9 +215,73 @@
 		A71AF5A42BF78FC500FE1560 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				A71AF5AB2BF7978600FE1560 /* HomeModel.swift */,
+				A751C1232BF7DA460040DB43 /* AlertModel.swift */,
+				A751C11E2BF7D5070040DB43 /* TodoModel.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		A751C1112BF7CA6D0040DB43 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A751C1182BF7D4780040DB43 /* WebService.swift */,
+				A751C1142BF7CAC00040DB43 /* NetworkProvider.swift */,
+				A751C11A2BF7D4A30040DB43 /* HTTPMethod.swift */,
+				A751C11C2BF7D4AA0040DB43 /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A751C1252BF7DECB0040DB43 /* DetailModule */ = {
+			isa = PBXGroup;
+			children = (
+				A751C1262BF7DED50040DB43 /* View */,
+				A751C12B2BF7DEEE0040DB43 /* Interactor */,
+				A751C12A2BF7DEE90040DB43 /* Presenter */,
+				A751C1282BF7DEDF0040DB43 /* Router */,
+				A751C1272BF7DEDA0040DB43 /* Builder */,
+			);
+			path = DetailModule;
+			sourceTree = "<group>";
+		};
+		A751C1262BF7DED50040DB43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A751C12C2BF7DEFD0040DB43 /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A751C1272BF7DEDA0040DB43 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				A751C1342BF7DF360040DB43 /* DetailModuleBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		A751C1282BF7DEDF0040DB43 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A751C1322BF7DF260040DB43 /* DetailRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		A751C12A2BF7DEE90040DB43 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A751C1302BF7DF120040DB43 /* DetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A751C12B2BF7DEEE0040DB43 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A751C12E2BF7DF050040DB43 /* DetailInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,13 +414,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A751C1192BF7D4780040DB43 /* WebService.swift in Sources */,
 				A71AF5AE2BF797DE00FE1560 /* HomeModuleBuilder.swift in Sources */,
 				A71AF5732BF784A100FE1560 /* HomeViewController.swift in Sources */,
+				A751C1332BF7DF260040DB43 /* DetailRouter.swift in Sources */,
+				A751C11B2BF7D4A30040DB43 /* HTTPMethod.swift in Sources */,
 				A71AF56F2BF784A100FE1560 /* AppDelegate.swift in Sources */,
 				A71AF5712BF784A100FE1560 /* SceneDelegate.swift in Sources */,
-				A71AF5AC2BF7978600FE1560 /* HomeModel.swift in Sources */,
+				A751C1152BF7CAC00040DB43 /* NetworkProvider.swift in Sources */,
+				A751C1352BF7DF360040DB43 /* DetailModuleBuilder.swift in Sources */,
+				A751C12D2BF7DEFD0040DB43 /* DetailViewController.swift in Sources */,
+				A751C1222BF7D6890040DB43 /* HomeCell.swift in Sources */,
 				A71AF5AA2BF7974F00FE1560 /* HomeInteractor.swift in Sources */,
+				A751C1312BF7DF120040DB43 /* DetailPresenter.swift in Sources */,
+				A751C11F2BF7D5070040DB43 /* TodoModel.swift in Sources */,
+				A751C11D2BF7D4AA0040DB43 /* NetworkError.swift in Sources */,
+				A751C12F2BF7DF050040DB43 /* DetailInteractor.swift in Sources */,
 				A71AF5A62BF796EC00FE1560 /* HomePresenter.swift in Sources */,
+				A751C1242BF7DA460040DB43 /* AlertModel.swift in Sources */,
 				A71AF5A82BF7971C00FE1560 /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

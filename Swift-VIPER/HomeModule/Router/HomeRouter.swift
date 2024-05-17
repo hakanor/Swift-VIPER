@@ -7,8 +7,9 @@
 
 import UIKit
 
+// protocol HomeWireFrame -> better naming?
 protocol HomeRouting {
-    
+    func navigateToDetail(with todo: Todo)
 }
 
 class HomeRouter {
@@ -20,5 +21,8 @@ class HomeRouter {
 }
 
 extension HomeRouter: HomeRouting {
-    
+    func navigateToDetail(with todo: Todo) {
+        let vc = DetailModuleBuilder().build(with: todo)
+        viewController.present(vc, animated: true)
+    }
 }

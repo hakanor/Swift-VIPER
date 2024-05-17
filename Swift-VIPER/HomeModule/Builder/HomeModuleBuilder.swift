@@ -12,7 +12,8 @@ class HomeModuleBuilder {
         let view = HomeViewController()
         
         // create presenter's depend.
-        let interactor = HomeInteractor()
+        let webService = WebService(networkProvider: NetworkProvider())
+        let interactor = HomeInteractor(webService: webService)
         let router = HomeRouter(viewController: view)
         
         let presenter = HomePresenter(interactor: interactor, router: router, view: view)

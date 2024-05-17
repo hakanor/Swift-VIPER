@@ -7,6 +7,7 @@
 
 protocol HomePresentation {
     func viewDidLoad() -> Void
+    func didSelectTodoItem(_ todo: Todo)
 }
 
 class HomePresenter {
@@ -20,12 +21,22 @@ class HomePresenter {
         self.router = router
         self.view = view
     }
-    
 }
 
 extension HomePresenter: HomePresentation {
     func viewDidLoad() {
-        let homeModel = interactor.getTitle()
-        view?.updateModel(homeModel: homeModel)
+        Task {
+            do {
+                let todos = try await interactor.getTodos()
+                view?.updateTableView(with: todos)
+            } catch {
+                let alertModel = AlertModel(title: "Error", message: error.localizedDescription, accessibilityIdentifier: "errorAlertDialog")
+                view?.showAlertDialog(with: alertModel)
+            }
+        }
+    }
+    
+    func didSelectTodoItem(_ todo: Todo) {
+        router.navigateToDetail(with: todo)
     }
 }
