@@ -13,7 +13,7 @@ protocol HomeRouting {
 }
 
 class HomeRouter {
-    var viewController: UIViewController
+    weak var viewController: UIViewController?
     
     init(viewController: UIViewController) {
         self.viewController = viewController
@@ -23,6 +23,6 @@ class HomeRouter {
 extension HomeRouter: HomeRouting {
     func navigateToDetail(with todo: Todo) {
         let vc = DetailModuleBuilder().build(with: todo)
-        viewController.present(vc, animated: true)
+        viewController?.present(vc, animated: true)
     }
 }

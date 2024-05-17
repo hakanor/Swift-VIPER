@@ -12,7 +12,7 @@ protocol DetailRouting {
 }
 
 class DetailRouter {
-    var viewController: UIViewController
+    weak var viewController: UIViewController?
     
     init(viewController: UIViewController) {
         self.viewController = viewController
