@@ -12,7 +12,6 @@
 		A71AF5732BF784A100FE1560 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5722BF784A100FE1560 /* HomeViewController.swift */; };
 		A71AF5782BF784A300FE1560 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A71AF5772BF784A300FE1560 /* Assets.xcassets */; };
 		A71AF57B2BF784A300FE1560 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A71AF5792BF784A300FE1560 /* LaunchScreen.storyboard */; };
-		A71AF5862BF784A300FE1560 /* Swift_VIPERTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5852BF784A300FE1560 /* Swift_VIPERTests.swift */; };
 		A71AF5902BF784A300FE1560 /* Swift_VIPERUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF58F2BF784A300FE1560 /* Swift_VIPERUITests.swift */; };
 		A71AF5922BF784A300FE1560 /* Swift_VIPERUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5912BF784A300FE1560 /* Swift_VIPERUITestsLaunchTests.swift */; };
 		A71AF5A62BF796EC00FE1560 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5A52BF796EC00FE1560 /* HomePresenter.swift */; };
@@ -32,6 +31,15 @@
 		A751C1332BF7DF260040DB43 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1322BF7DF260040DB43 /* DetailRouter.swift */; };
 		A751C1352BF7DF360040DB43 /* DetailModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1342BF7DF360040DB43 /* DetailModuleBuilder.swift */; };
 		A751C13A2BF804500040DB43 /* LoaderDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C1392BF804500040DB43 /* LoaderDisplayable.swift */; };
+		A751C13D2BF80D460040DB43 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A751C13C2BF80D460040DB43 /* HomePresenterTests.swift */; };
+		A7FC43012BF90F1300D9A2DA /* MockHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC43002BF90F1300D9A2DA /* MockHomeInteractor.swift */; };
+		A7FC43032BF90F3600D9A2DA /* MockHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC43022BF90F3600D9A2DA /* MockHomeRouter.swift */; };
+		A7FC43052BF90F4100D9A2DA /* MockHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC43042BF90F4100D9A2DA /* MockHomeView.swift */; };
+		A7FC43092BF90F9400D9A2DA /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC43082BF90F9400D9A2DA /* HomeInteractorTests.swift */; };
+		A7FC430B2BF9124300D9A2DA /* MockWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC430A2BF9124300D9A2DA /* MockWebService.swift */; };
+		A7FC430F2BF9188500D9A2DA /* HomeRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC430E2BF9188500D9A2DA /* HomeRouterTests.swift */; };
+		A7FC43112BF91CE100D9A2DA /* HomeModuleBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC43102BF91CE100D9A2DA /* HomeModuleBuilderTests.swift */; };
+		A7FC43132BF91DF200D9A2DA /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC43122BF91DF200D9A2DA /* HomeViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +68,6 @@
 		A71AF57A2BF784A300FE1560 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A71AF57C2BF784A300FE1560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A71AF5812BF784A300FE1560 /* Swift-VIPERTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-VIPERTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A71AF5852BF784A300FE1560 /* Swift_VIPERTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_VIPERTests.swift; sourceTree = "<group>"; };
 		A71AF58B2BF784A300FE1560 /* Swift-VIPERUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-VIPERUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A71AF58F2BF784A300FE1560 /* Swift_VIPERUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_VIPERUITests.swift; sourceTree = "<group>"; };
 		A71AF5912BF784A300FE1560 /* Swift_VIPERUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_VIPERUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -81,6 +88,15 @@
 		A751C1322BF7DF260040DB43 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		A751C1342BF7DF360040DB43 /* DetailModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleBuilder.swift; sourceTree = "<group>"; };
 		A751C1392BF804500040DB43 /* LoaderDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderDisplayable.swift; sourceTree = "<group>"; };
+		A751C13C2BF80D460040DB43 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		A7FC43002BF90F1300D9A2DA /* MockHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeInteractor.swift; sourceTree = "<group>"; };
+		A7FC43022BF90F3600D9A2DA /* MockHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeRouter.swift; sourceTree = "<group>"; };
+		A7FC43042BF90F4100D9A2DA /* MockHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeView.swift; sourceTree = "<group>"; };
+		A7FC43082BF90F9400D9A2DA /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
+		A7FC430A2BF9124300D9A2DA /* MockWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebService.swift; sourceTree = "<group>"; };
+		A7FC430E2BF9188500D9A2DA /* HomeRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouterTests.swift; sourceTree = "<group>"; };
+		A7FC43102BF91CE100D9A2DA /* HomeModuleBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleBuilderTests.swift; sourceTree = "<group>"; };
+		A7FC43122BF91DF200D9A2DA /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +164,7 @@
 		A71AF5842BF784A300FE1560 /* Swift-VIPERTests */ = {
 			isa = PBXGroup;
 			children = (
-				A71AF5852BF784A300FE1560 /* Swift_VIPERTests.swift */,
+				A751C13B2BF80B130040DB43 /* HomeModule */,
 			);
 			path = "Swift-VIPERTests";
 			sourceTree = "<group>";
@@ -293,6 +309,30 @@
 				A751C1392BF804500040DB43 /* LoaderDisplayable.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A751C13B2BF80B130040DB43 /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				A7FC42FF2BF90F0500D9A2DA /* Mocks */,
+				A7FC43122BF91DF200D9A2DA /* HomeViewControllerTests.swift */,
+				A7FC43082BF90F9400D9A2DA /* HomeInteractorTests.swift */,
+				A751C13C2BF80D460040DB43 /* HomePresenterTests.swift */,
+				A7FC430E2BF9188500D9A2DA /* HomeRouterTests.swift */,
+				A7FC43102BF91CE100D9A2DA /* HomeModuleBuilderTests.swift */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		A7FC42FF2BF90F0500D9A2DA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A7FC43002BF90F1300D9A2DA /* MockHomeInteractor.swift */,
+				A7FC43022BF90F3600D9A2DA /* MockHomeRouter.swift */,
+				A7FC43042BF90F4100D9A2DA /* MockHomeView.swift */,
+				A7FC430A2BF9124300D9A2DA /* MockWebService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,7 +492,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A71AF5862BF784A300FE1560 /* Swift_VIPERTests.swift in Sources */,
+				A7FC430B2BF9124300D9A2DA /* MockWebService.swift in Sources */,
+				A7FC43052BF90F4100D9A2DA /* MockHomeView.swift in Sources */,
+				A7FC43112BF91CE100D9A2DA /* HomeModuleBuilderTests.swift in Sources */,
+				A751C13D2BF80D460040DB43 /* HomePresenterTests.swift in Sources */,
+				A7FC43132BF91DF200D9A2DA /* HomeViewControllerTests.swift in Sources */,
+				A7FC43092BF90F9400D9A2DA /* HomeInteractorTests.swift in Sources */,
+				A7FC430F2BF9188500D9A2DA /* HomeRouterTests.swift in Sources */,
+				A7FC43012BF90F1300D9A2DA /* MockHomeInteractor.swift in Sources */,
+				A7FC43032BF90F3600D9A2DA /* MockHomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

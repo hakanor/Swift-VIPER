@@ -33,6 +33,7 @@ extension HomePresenter: HomePresentation {
                 view?.dismissLoadingView()
             } catch {
                 let alertModel = AlertModel(title: "Error", message: error.localizedDescription, accessibilityIdentifier: "errorAlertDialog")
+                view?.dismissLoadingView()
                 view?.showAlertDialog(with: alertModel)
             }
         }
