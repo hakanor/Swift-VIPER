@@ -49,13 +49,13 @@ final class HomePresenterTests: XCTestCase {
         XCTAssertTrue(view.showLoadingViewCalled)
         
         XCTAssertTrue(self.interactor.getTodosCalled)
-        XCTAssertTrue(self.view.updateTableViewCalled)
+        XCTAssertTrue(self.view.updateTodoListCalled)
         XCTAssertTrue(self.view.dismissLoadingViewCalled)
     }
     
     func test_viewDidLoad_ErrorFlow() async {
         // Arrange
-        interactor.error = .failedRequest(error: "TestError")
+        interactor.getTodosError = .failedRequest(error: "TestError")
         
         // Act
         sut.viewDidLoad()
@@ -66,8 +66,23 @@ final class HomePresenterTests: XCTestCase {
         // Assert
         XCTAssertTrue(view.showLoadingViewCalled)
         XCTAssertTrue(interactor.getTodosCalled)
-        XCTAssertFalse(view.updateTableViewCalled)
+        XCTAssertFalse(view.updateTodoListCalled)
         XCTAssertTrue(view.showAlertDialogCalled)
         XCTAssertTrue(view.dismissLoadingViewCalled)
+    }
+    
+    func test_sortTodos() {
+        // Arrange
+        let todos = [
+            Todo(userId: 2, id: 2, title: "ATodo", completed: false),
+            Todo(userId: 1, id: 1, title: "ZTodo", completed: true),
+        ]
+        
+        // Act
+        sut.sortTodos(todos, by: .alphabetical)
+        
+        // Assert
+        XCTAssertTrue(interactor.sortTodosCalled)
+        XCTAssertTrue(view.updateTodoListCalled)
     }
 }

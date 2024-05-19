@@ -8,7 +8,7 @@
 import Foundation
 @testable import Swift_VIPER
 
-class MockHomeRouter: HomeWireFrame {
+class MockHomeRouter: HomeWireframe {
     // MARK: - navigateToDetail
     var navigateToDetailCallsCount = 0
     var navigateToDetailCalled: Bool {

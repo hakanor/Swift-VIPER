@@ -12,8 +12,9 @@ import XCTest
 class MockHomeInteractor: HomeUseCase {
     
     var todos: [Todo]!
-    var error: NetworkError?
+    var getTodosError: NetworkError?
     
+    // MARK: - getTodos
     var getTodosCallsCount = 0
     var getTodosCalled: Bool {
         getTodosCallsCount > 0
@@ -21,10 +22,20 @@ class MockHomeInteractor: HomeUseCase {
     
     func getTodos() async throws -> [Todo] {
         getTodosCallsCount += 1
-        if let error = error {
+        if let error = getTodosError {
             throw error
         } else {
             return todos
         }
+    }
+    
+    // MARK: - sortTodos
+    var sortTodosCallsCount = 0
+    var sortTodosCalled: Bool {
+        sortTodosCallsCount > 0
+    }
+    func sortTodos(_ todos: [Swift_VIPER.Todo], by sortOption: Swift_VIPER.TodoSortOption) -> [Swift_VIPER.Todo] {
+        sortTodosCallsCount += 1
+        return todos
     }
 }

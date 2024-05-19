@@ -18,9 +18,11 @@ class HomeViewController: UIViewController, LoaderDisplayable {
     
     var todos = [Todo]()
     var presenter: HomePresentation
+    var context: Context
     
-    init(presenter: HomePresentation) {
+    init(presenter: HomePresentation, context: Context = UIContext()) {
         self.presenter = presenter
+        self.context = context
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -40,8 +42,9 @@ class HomeViewController: UIViewController, LoaderDisplayable {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        presenter.viewDidLoad()
+        setupNavigationBar()
         setupCollectionView()
+        presenter.viewDidLoad()
     }
     
     private func configureUI() {
@@ -49,17 +52,47 @@ class HomeViewController: UIViewController, LoaderDisplayable {
         view.addSubview(collectionView)
     }
     
+    private func setupNavigationBar() {
+        let sortAlphabeticallyImage = UIImage(systemName: "textformat.abc")
+        let sortNumericallyImage = UIImage(systemName: "arrow.up.arrow.down")
+        
+        let alphabeticallySortButton = createBarButtonItem(image: sortAlphabeticallyImage, action: #selector(sortAlphabeticallyTapped))
+        let numericSortButton = createBarButtonItem(image: sortNumericallyImage, action: #selector(sortNumericallyTapped))
+        
+        navigationItem.rightBarButtonItems = [numericSortButton, alphabeticallySortButton]
+        
+        title = "Todos"
+        navigationController?.navigationBar.tintColor = UIColor(red: 59/255, green: 65/255, blue: 60/255, alpha: 1)
+    }
+    
+    private func createBarButtonItem(image: UIImage?, action: Selector) -> UIBarButtonItem {
+        let button = UIButton(type: .roundedRect)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: action, for: .touchUpInside)
+        button.imageView?.contentMode = .scaleAspectFit
+        let barButtonItem = UIBarButtonItem(customView: button)
+        return barButtonItem
+    }
+    
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.reuseIdentifier)
+    }
+    
+    @objc private func sortAlphabeticallyTapped() {
+        presenter.sortTodos(todos, by: .alphabetical)
+    }
+
+    @objc private func sortNumericallyTapped() {
+        presenter.sortTodos(todos, by: .numerical)
     }
 }
 
 extension HomeViewController: HomeView {
     func updateTodoList(with todos: [Todo]) {
         self.todos = todos
-        DispatchQueue.main.async {
+        context.run {
             self.collectionView.reloadData()
         }
     }
@@ -75,16 +108,13 @@ extension HomeViewController: HomeView {
     }
     
     func showLoadingView() {
-        DispatchQueue.main.async {
+        context.run {
             self.showLoading()
         }
     }
     
     func dismissLoadingView() {
-        DispatchQueue.main.async {
-            self.dismissLoading()
-        }
-        UIContext().run {
+        context.run {
             self.dismissLoading()
         }
     }
@@ -109,23 +139,5 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 20, height: 60)
-    }
-}
-
-protocol Context {
-    func run(closure: @escaping () -> (Void))
-}
-
-final class UIContext: Context {
-    func run(closure: @escaping () -> (Void)) {
-        DispatchQueue.main.async {
-            closure()
-        }
-    }
-}
-
-final class SerialContext: Context {
-    func run(closure: @escaping () -> (Void)) {
-        closure()
     }
 }

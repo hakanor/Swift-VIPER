@@ -53,4 +53,45 @@ final class HomeInteractorTests: XCTestCase {
             XCTAssertEqual(error.localizedDescription, errorToReturn.localizedDescription)
         }
     }
+    
+    func test_sortTodos_shouldReturnAlphabeticalSortedTodos() {
+        // Arrange
+        let todos = [
+            Todo(userId: 1, id: 1, title: "ZTodo", completed: true),
+            Todo(userId: 2, id: 2, title: "ATodo", completed: false)
+        ]
+        
+        // Act
+        let sortedTodos = sut.sortTodos(todos, by: .alphabetical)
+        
+        // Assert
+        XCTAssertEqual(sortedTodos[0].title, "ATodo")
+        XCTAssertEqual(sortedTodos[1].title, "ZTodo")
+    }
+    
+    func test_sortTodos_shouldReturnNumericalSortedTodos() {
+        // Arrange
+        let todos = [
+            Todo(userId: 2, id: 2, title: "ATodo", completed: false),
+            Todo(userId: 1, id: 1, title: "ZTodo", completed: true),
+        ]
+        
+        // Act
+        let sortedTodos = sut.sortTodos(todos, by: .numerical)
+        
+        // Assert
+        XCTAssertEqual(sortedTodos[0].id, 1)
+        XCTAssertEqual(sortedTodos[1].id, 2)
+    }
+    
+    func test_sortTodos_shouldReturnEmptyListWhenSortingEmptyList() {
+        // Arrange
+        let todos: [Todo] = []
+        
+        // Act
+        let sortedTodos = sut.sortTodos(todos, by: .numerical)
+        
+        // Assert
+        XCTAssertNotNil(sortedTodos)
+    }
 }

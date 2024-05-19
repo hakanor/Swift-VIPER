@@ -7,6 +7,7 @@
 
 protocol HomeUseCase {
     func getTodos() async throws -> [Todo]
+    func sortTodos(_ todos: [Todo], by sortOption: TodoSortOption) -> [Todo]
 }
 
 class HomeInteractor {
@@ -20,5 +21,18 @@ class HomeInteractor {
 extension HomeInteractor: HomeUseCase {
     func getTodos() async throws -> [Todo] {
         try await webService.fetchTodos()
+    }
+    
+    func sortTodos(_ todos: [Todo], by sortOption: TodoSortOption) -> [Todo] {
+        switch sortOption {
+        case .alphabetical:
+            var sortedTodos = todos
+            sortedTodos.sort { $0.title < $1.title}
+            return sortedTodos
+        case .numerical:
+            var sortedTodos = todos
+            sortedTodos.sort { $0.id < $1.id}
+            return sortedTodos
+        }
     }
 }

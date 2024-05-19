@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol HomeWireFrame {
+protocol HomeWireframe {
     func navigateToDetail(with todo: Todo)
 }
 
@@ -15,7 +15,7 @@ class HomeRouter {
     weak var viewController: UIViewController?
 }
 
-extension HomeRouter: HomeWireFrame {
+extension HomeRouter: HomeWireframe {
     func navigateToDetail(with todo: Todo) {
         let vc = DetailModuleBuilder().build(with: todo)
         viewController?.present(vc, animated: true)

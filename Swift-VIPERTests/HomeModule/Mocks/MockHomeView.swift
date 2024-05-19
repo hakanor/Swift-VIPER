@@ -13,7 +13,7 @@ class MockHomeView: HomeView {
 
     // MARK: - updateTodoList
     var updateTodoListCallsCount = 0
-    var updateTableViewCalled: Bool {
+    var updateTodoListCalled: Bool {
         updateTodoListCallsCount > 0
     }
     func updateTodoList(with todos: [Swift_VIPER.Todo]) {
