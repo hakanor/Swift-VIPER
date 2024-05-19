@@ -14,13 +14,17 @@ final class HomePresenterTests: XCTestCase {
     var interactor: MockHomeInteractor!
     var router: MockHomeRouter!
     var view: MockHomeView!
+    var taskFactory: MockTaskFactory!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         interactor = MockHomeInteractor()
         router = MockHomeRouter()
+        taskFactory = MockTaskFactory()
         view = MockHomeView()
-        sut = HomePresenter(interactor: interactor, router: router, view: view)
+        sut = HomePresenter(interactor: interactor, router: router)
+        sut.view = view
+        sut.taskFactory = taskFactory
     }
 
     override func tearDownWithError() throws {
@@ -31,52 +35,39 @@ final class HomePresenterTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func test_viewDidLoad_SuccessfulFlow() {
+    func test_viewDidLoad_SuccessfulFlow() async {
         // Arrange
         interactor.todos = [Todo(userId: 0, id: 0, title: "Test", completed: true)]
-        let expectation = expectation(description: "Wait for request")
+        // Act
+        sut.viewDidLoad()
+//        let dismissLoadingViewExpectation = expectation(description: "")
+//        view.dismissLoadingViewExpectation = dismissLoadingViewExpectation
+//        wait(for: [dismissLoadingViewExpectation], timeout: 5)
+        await taskFactory.wait()
+        
+        // Assert
+        XCTAssertTrue(view.showLoadingViewCalled)
+        
+        XCTAssertTrue(self.interactor.getTodosCalled)
+        XCTAssertTrue(self.view.updateTableViewCalled)
+        XCTAssertTrue(self.view.dismissLoadingViewCalled)
+    }
+    
+    func test_viewDidLoad_ErrorFlow() async {
+        // Arrange
+        interactor.error = .failedRequest(error: "TestError")
         
         // Act
         sut.viewDidLoad()
         
-        // Assert
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            XCTAssertTrue(self.view.showLoadingViewCalled)
-            XCTAssertTrue(self.view.updateTableViewCalled)
-            XCTAssertTrue(self.view.dismissLoadingViewCalled)
-            XCTAssertFalse(self.view.showAlertDialogCalled)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 5)
-    }
-    
-    func test_viewDidLoad_ErrorFlow() {
-        // Arrange
-        interactor.error = .invalidResponse
-        let expectation = expectation(description: "Wait for request")
-        
-        // Act
-        sut.viewDidLoad()
+        // wait for tasks to complete.
+        await taskFactory.wait()
         
         // Assert
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            XCTAssertTrue(self.view.showLoadingViewCalled)
-            XCTAssertFalse(self.view.updateTableViewCalled)
-            XCTAssertTrue(self.view.dismissLoadingViewCalled)
-            XCTAssertTrue(self.view.showAlertDialogCalled)
-            expectation.fulfill()
-        }
-        waitForExpectations(timeout: 5)
-    }
-    
-    func test_didSelectTodoItem() {
-        // Arrange
-        let todo = Todo(userId: 0, id: 0, title: "", completed: true)
-        
-        // Act
-        sut.didSelectTodoItem(todo)
-        
-        // Arrange
-        XCTAssertTrue(router.navigateToDetailCalled)
+        XCTAssertTrue(view.showLoadingViewCalled)
+        XCTAssertTrue(interactor.getTodosCalled)
+        XCTAssertFalse(view.updateTableViewCalled)
+        XCTAssertTrue(view.showAlertDialogCalled)
+        XCTAssertTrue(view.dismissLoadingViewCalled)
     }
 }

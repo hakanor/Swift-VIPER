@@ -13,8 +13,18 @@ protocol DetailView: AnyObject {
 
 class DetailViewController: UIViewController {
     
-    var todo: Todo!
-    var presenter: DetailPresentation!
+    var todo: Todo
+    var presenter: DetailPresentation
+    
+    init(todo: Todo, presenter: DetailPresentation) {
+        self.todo = todo
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private let titleLabel: UILabel = {
         let label = UILabel()

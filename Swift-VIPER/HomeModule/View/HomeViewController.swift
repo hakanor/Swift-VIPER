@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeView: AnyObject {
-    func updateTableView(with todos: [Todo])
+    func updateTodoList(with todos: [Todo])
     func showAlertDialog(with alert: AlertModel)
     func showLoadingView()
     func dismissLoadingView()
@@ -17,7 +17,16 @@ protocol HomeView: AnyObject {
 class HomeViewController: UIViewController, LoaderDisplayable {
     
     var todos = [Todo]()
-    var presenter: HomePresentation!
+    var presenter: HomePresentation
+    
+    init(presenter: HomePresentation) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,8 +39,8 @@ class HomeViewController: UIViewController, LoaderDisplayable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
         configureUI()
+        presenter.viewDidLoad()
         setupCollectionView()
     }
     
@@ -48,7 +57,7 @@ class HomeViewController: UIViewController, LoaderDisplayable {
 }
 
 extension HomeViewController: HomeView {
-    func updateTableView(with todos: [Todo]) {
+    func updateTodoList(with todos: [Todo]) {
         self.todos = todos
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -75,6 +84,9 @@ extension HomeViewController: HomeView {
         DispatchQueue.main.async {
             self.dismissLoading()
         }
+        UIContext().run {
+            self.dismissLoading()
+        }
     }
 }
 
@@ -97,5 +109,23 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 20, height: 60)
+    }
+}
+
+protocol Context {
+    func run(closure: @escaping () -> (Void))
+}
+
+final class UIContext: Context {
+    func run(closure: @escaping () -> (Void)) {
+        DispatchQueue.main.async {
+            closure()
+        }
+    }
+}
+
+final class SerialContext: Context {
+    func run(closure: @escaping () -> (Void)) {
+        closure()
     }
 }

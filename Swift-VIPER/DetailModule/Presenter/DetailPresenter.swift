@@ -17,10 +17,9 @@ class DetailPresenter {
     var router: DetailRouting
     weak var view: DetailView?
     
-    init(interactor: DetailUseCase, router: DetailRouting, view: DetailView) {
+    init(interactor: DetailUseCase, router: DetailRouting) {
         self.interactor = interactor
         self.router = router
-        self.view = view
     }
     
 }

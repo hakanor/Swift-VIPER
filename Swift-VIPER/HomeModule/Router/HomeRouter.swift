@@ -7,20 +7,15 @@
 
 import UIKit
 
-// protocol HomeWireFrame -> better naming?
-protocol HomeRouting {
+protocol HomeWireFrame {
     func navigateToDetail(with todo: Todo)
 }
 
 class HomeRouter {
     weak var viewController: UIViewController?
-    
-    init(viewController: UIViewController) {
-        self.viewController = viewController
-    }
 }
 
-extension HomeRouter: HomeRouting {
+extension HomeRouter: HomeWireFrame {
     func navigateToDetail(with todo: Todo) {
         let vc = DetailModuleBuilder().build(with: todo)
         viewController?.present(vc, animated: true)

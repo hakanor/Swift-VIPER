@@ -19,11 +19,6 @@ class HomeInteractor {
 
 extension HomeInteractor: HomeUseCase {
     func getTodos() async throws -> [Todo] {
-        do {
-            let todos = try await webService.fetchTodos()
-            return todos
-        } catch {
-            throw error
-        }
+        try await webService.fetchTodos()
     }
 }

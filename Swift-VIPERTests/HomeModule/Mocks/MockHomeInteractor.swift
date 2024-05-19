@@ -2,15 +2,16 @@
 //  MockHomeInteractor.swift
 //  Swift-VIPERTests
 //
-//  Created by Hakan Or on 18.05.2024.
+//  Created by Hakan Or on 19.05.2024.
 //
 
 import Foundation
+import XCTest
 @testable import Swift_VIPER
 
 class MockHomeInteractor: HomeUseCase {
     
-    var todos: [Todo]?
+    var todos: [Todo]!
     var error: NetworkError?
     
     var getTodosCallsCount = 0
@@ -22,10 +23,8 @@ class MockHomeInteractor: HomeUseCase {
         getTodosCallsCount += 1
         if let error = error {
             throw error
-        } else if let todos = todos {
-            return todos
         } else {
-            throw NSError()
+            return todos
         }
     }
 }

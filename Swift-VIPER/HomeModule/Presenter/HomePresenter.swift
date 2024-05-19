@@ -13,23 +13,36 @@ protocol HomePresentation {
 class HomePresenter {
     
     var interactor: HomeUseCase
-    var router: HomeRouting
+    var router: HomeWireFrame
     weak var view: HomeView?
+    var taskFactory: TaskFactoryProtocol
     
-    init(interactor: HomeUseCase, router: HomeRouting, view: HomeView) {
+    init(interactor: HomeUseCase, router: HomeWireFrame, taskFactory: TaskFactoryProtocol = TaskFactory()) {
         self.interactor = interactor
         self.router = router
-        self.view = view
+        self.taskFactory = taskFactory
     }
 }
 
 extension HomePresenter: HomePresentation {
     func viewDidLoad() {
         view?.showLoadingView()
-        Task {
+//        Task {
+//            do {
+//                let todos = try await interactor.getTodos()
+//                view?.updateTodoList(with: todos)
+//                view?.dismissLoadingView()
+//            } catch {
+//                let alertModel = AlertModel(title: "Error", message: error.localizedDescription, accessibilityIdentifier: "errorAlertDialog")
+//                view?.dismissLoadingView()
+//                view?.showAlertDialog(with: alertModel)
+//            }
+//        }
+        taskFactory.task() { [weak self] in
+            guard let self else { return }
             do {
                 let todos = try await interactor.getTodos()
-                view?.updateTableView(with: todos)
+                view?.updateTodoList(with: todos)
                 view?.dismissLoadingView()
             } catch {
                 let alertModel = AlertModel(title: "Error", message: error.localizedDescription, accessibilityIdentifier: "errorAlertDialog")

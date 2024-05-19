@@ -9,14 +9,14 @@ import UIKit
 
 class DetailModuleBuilder {
     func build(with todo: Todo) -> UIViewController {
-        let view = DetailViewController()
-        view.todo = todo
         
         let interactor = DetailInteractor()
-        let router = DetailRouter(viewController: view)
-        let presenter = DetailPresenter(interactor: interactor, router: router, view: view)
+        let router = DetailRouter()
+        let presenter = DetailPresenter(interactor: interactor, router: router)
+        let view = DetailViewController(todo: todo, presenter: presenter)
         
-        view.presenter = presenter
+        router.viewController = view
+        presenter.view = view
         return view
     }
 }

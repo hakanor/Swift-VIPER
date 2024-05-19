@@ -9,16 +9,15 @@ import UIKit
 
 class HomeModuleBuilder {
     func build() -> UIViewController {
-        let view = HomeViewController()
-        
         // create presenter's depend.
         let webService = WebService(networkProvider: NetworkProvider())
         let interactor = HomeInteractor(webService: webService)
-        let router = HomeRouter(viewController: view)
+        let router = HomeRouter()
+        let presenter = HomePresenter(interactor: interactor, router: router)
+        let view = HomeViewController(presenter: presenter)
         
-        let presenter = HomePresenter(interactor: interactor, router: router, view: view)
-        
-        view.presenter = presenter
+        router.viewController = view
+        presenter.view = view
         return view
     }
 }

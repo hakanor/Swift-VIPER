@@ -11,7 +11,7 @@ import XCTest
 final class HomeInteractorTests: XCTestCase {
     
     var sut: HomeInteractor!
-    var webService: WebServiceProtocol!
+    var webService: MockWebService!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -25,37 +25,31 @@ final class HomeInteractorTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func test_getTodos_shouldReturnSuccess() async {
+    func test_getTodos_shouldReturnSuccess() async throws {
         // Arrange
-        let mockWebService = MockWebService()
-        mockWebService.shouldReturnError = false
+        webService.shouldReturnError = false
         
         // Act
-        do {
-            let todos = try await mockWebService.fetchTodos()
-            // Assert
-            XCTAssertTrue(mockWebService.fetchTodosCalled)
-            XCTAssertEqual(todos.count, 1)
-            XCTAssertEqual(todos.first?.title, "Test Todo")
-        } catch {
-            XCTFail()
-        }
+        let todos = try await sut.getTodos()
+        // Assert
+        XCTAssertTrue(webService.fetchTodosCalled)
+        XCTAssertEqual(todos.count, 1)
+        XCTAssertEqual(todos.first?.title, "Test Todo")
     }
     
     func test_getTodos_shouldReturnError() async {
         // Arrange
-        let mockWebService = MockWebService()
-        mockWebService.shouldReturnError = true
+        webService.shouldReturnError = true
         let errorToReturn = NetworkError.failedRequest(error: "TestError")
-        mockWebService.errorToReturn = errorToReturn
+        webService.errorToReturn = errorToReturn
         
         // Act
         do {
-            let _ = try await mockWebService.fetchTodos()
+            _ = try await sut.getTodos()
             XCTFail()
         } catch {
             // Assert
-            XCTAssertTrue(mockWebService.fetchTodosCalled)
+            XCTAssertTrue(webService.fetchTodosCalled)
             XCTAssertEqual(error.localizedDescription, errorToReturn.localizedDescription)
         }
     }
