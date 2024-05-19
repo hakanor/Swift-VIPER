@@ -15,6 +15,10 @@
 		A7093FAA2BFA66E30034427C /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7093FA92BFA66E30034427C /* Context.swift */; };
 		A7093FAC2BFA6BD40034427C /* TodoSortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7093FAB2BFA6BD40034427C /* TodoSortOption.swift */; };
 		A7093FB02BFA81990034427C /* SerialContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7093FAF2BFA81990034427C /* SerialContext.swift */; };
+		A7093FB62BFA882E0034427C /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A7093FB52BFA882E0034427C /* SnapshotTesting */; };
+		A7093FB82BFA884C0034427C /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7093FB72BFA884C0034427C /* HomeViewControllerTests.swift */; };
+		A7093FBA2BFAA0110034427C /* MockHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7093FB92BFAA0110034427C /* MockHomePresenter.swift */; };
+		A7093FBC2BFAA0390034427C /* MockTodosBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7093FBB2BFAA0390034427C /* MockTodosBuilder.swift */; };
 		A71AF56F2BF784A100FE1560 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF56E2BF784A100FE1560 /* AppDelegate.swift */; };
 		A71AF5712BF784A100FE1560 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5702BF784A100FE1560 /* SceneDelegate.swift */; };
 		A71AF5732BF784A100FE1560 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71AF5722BF784A100FE1560 /* HomeViewController.swift */; };
@@ -71,6 +75,9 @@
 		A7093FA92BFA66E30034427C /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		A7093FAB2BFA6BD40034427C /* TodoSortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoSortOption.swift; sourceTree = "<group>"; };
 		A7093FAF2BFA81990034427C /* SerialContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerialContext.swift; sourceTree = "<group>"; };
+		A7093FB72BFA884C0034427C /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		A7093FB92BFAA0110034427C /* MockHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomePresenter.swift; sourceTree = "<group>"; };
+		A7093FBB2BFAA0390034427C /* MockTodosBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTodosBuilder.swift; sourceTree = "<group>"; };
 		A71AF56B2BF784A100FE1560 /* Swift-VIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-VIPER.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A71AF56E2BF784A100FE1560 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A71AF5702BF784A100FE1560 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7093FB62BFA882E0034427C /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +335,7 @@
 				A7FC43082BF90F9400D9A2DA /* HomeInteractorTests.swift */,
 				A751C13C2BF80D460040DB43 /* HomePresenterTests.swift */,
 				A7FC43102BF91CE100D9A2DA /* HomeModuleBuilderTests.swift */,
+				A7093FB72BFA884C0034427C /* HomeViewControllerTests.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -340,6 +349,8 @@
 				A7093FA32BFA3FC10034427C /* MockHomeRouter.swift */,
 				A7093FA52BFA4A510034427C /* MockTaskFactory.swift */,
 				A7093FAF2BFA81990034427C /* SerialContext.swift */,
+				A7093FB92BFAA0110034427C /* MockHomePresenter.swift */,
+				A7093FBB2BFAA0390034427C /* MockTodosBuilder.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -378,6 +389,9 @@
 				A71AF5832BF784A300FE1560 /* PBXTargetDependency */,
 			);
 			name = "Swift-VIPERTests";
+			packageProductDependencies = (
+				A7093FB52BFA882E0034427C /* SnapshotTesting */,
+			);
 			productName = "Swift-VIPERTests";
 			productReference = A71AF5812BF784A300FE1560 /* Swift-VIPERTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -432,6 +446,9 @@
 				Base,
 			);
 			mainGroup = A71AF5622BF784A100FE1560;
+			packageReferences = (
+				A7093FB42BFA882E0034427C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = A71AF56C2BF784A100FE1560 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -509,8 +526,11 @@
 				A7FC430B2BF9124300D9A2DA /* MockWebService.swift in Sources */,
 				A7093FA62BFA4A520034427C /* MockTaskFactory.swift in Sources */,
 				A7FC43112BF91CE100D9A2DA /* HomeModuleBuilderTests.swift in Sources */,
+				A7093FB82BFA884C0034427C /* HomeViewControllerTests.swift in Sources */,
 				A7093FA42BFA3FC10034427C /* MockHomeRouter.swift in Sources */,
+				A7093FBC2BFAA0390034427C /* MockTodosBuilder.swift in Sources */,
 				A751C13D2BF80D460040DB43 /* HomePresenterTests.swift in Sources */,
+				A7093FBA2BFAA0110034427C /* MockHomePresenter.swift in Sources */,
 				A7FC43092BF90F9400D9A2DA /* HomeInteractorTests.swift in Sources */,
 				A7093FA02BFA1DAC0034427C /* MockHomeInteractor.swift in Sources */,
 			);
@@ -851,6 +871,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A7093FB42BFA882E0034427C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.16.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A7093FB52BFA882E0034427C /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7093FB42BFA882E0034427C /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A71AF5632BF784A100FE1560 /* Project object */;
 }

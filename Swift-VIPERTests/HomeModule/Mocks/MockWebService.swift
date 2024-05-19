@@ -23,7 +23,7 @@ class MockWebService: WebServiceProtocol {
         if shouldReturnError {
             throw errorToReturn
         } else {
-            return [Todo(userId: 1, id: 1, title: "Test Todo", completed: false)]
+            return MockTodosBuilder.createMultipleTodos()
         }
     }
 }
